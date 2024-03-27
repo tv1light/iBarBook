@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CocktailsController {
     @GetMapping("/")
     public String cocktails(){
-        return "cocktails";
+        return "cocktails.html";
     }
 }
