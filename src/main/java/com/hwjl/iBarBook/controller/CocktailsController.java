@@ -2,11 +2,12 @@ package com.hwjl.iBarBook.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class CocktailsController {
     @GetMapping("/")
     public String cocktails(){
-        return "cocktails.html";
+        return "main";
     }
 }
