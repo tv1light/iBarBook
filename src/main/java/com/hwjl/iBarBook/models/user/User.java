@@ -19,5 +19,4 @@ public class User {
 
     @Column(name = "password", nullable = false, unique = true)
     private String password;
-
 }
