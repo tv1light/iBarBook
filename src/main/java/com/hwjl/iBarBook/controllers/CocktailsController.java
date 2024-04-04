@@ -18,6 +18,6 @@ public class CocktailsController {
 
     @GetMapping("/")
     public List<Cocktail> cocktails(){
-        return cocktailService.listCocktails();
+        return cocktailService.findAllCocktails();
     }
 }

@@ -12,12 +12,14 @@ public class Cocktail {
     @Column(name = "cocktail_id")
     private Long cocktail_id;
 
-    @Column(name = "cocktail_name", nullable = false, unique = true)
+    @Column(name = "cocktail_name")
     private String cocktail_name;
 
-    @Column(name = "description", nullable = false, unique = true)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "recipe", nullable = false, unique = true)
+    @Column(name = "recipe")
     private String recipe;
+
+
 }
