@@ -4,9 +4,11 @@ import com.hwjl.iBarBook.models.cocktails.Cocktail;
 import com.hwjl.iBarBook.services.CocktailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CocktailsController {
@@ -19,5 +21,10 @@ public class CocktailsController {
     @GetMapping("/")
     public List<Cocktail> cocktails(){
         return cocktailService.findAllCocktails();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Cocktail> cocktails(@PathVariable("id") Long id){
+        return cocktailService.findById(id);
     }
 }

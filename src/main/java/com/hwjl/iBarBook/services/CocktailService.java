@@ -5,6 +5,7 @@ import com.hwjl.iBarBook.models.cocktails.CocktailRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -19,5 +20,9 @@ public class CocktailService {
     public List<Cocktail> findAllCocktails(){
         List<Cocktail> list = cocktailRepository.findAll();
         return cocktailRepository.findAll();
+    }
+
+    public Optional<Cocktail> findById(Long Id){
+        return cocktailRepository.findById(Id);
     }
 }
