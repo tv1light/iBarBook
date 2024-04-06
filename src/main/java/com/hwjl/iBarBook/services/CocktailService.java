@@ -17,12 +17,13 @@ public class CocktailService {
         this.cocktailRepository = cocktailRepository;
     }
 
-    public List<Cocktail> findAllCocktails(){
-        List<Cocktail> list = cocktailRepository.findAll();
-        return cocktailRepository.findAll();
-    }
-
     public Optional<Cocktail> findById(Long Id){
         return cocktailRepository.findById(Id);
     }
+
+    public List<Cocktail> findAllCocktails(){
+        return cocktailRepository.findAll();
+    }
+
+
 }

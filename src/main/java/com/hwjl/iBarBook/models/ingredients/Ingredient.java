@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Setter;
 
+@SuppressWarnings("unused")
 @Entity(name = "Ingredient")
 @Table(name = "Ingredients")
 public class Ingredient {
@@ -42,8 +43,8 @@ public class Ingredient {
         return ingredient_name;
     }
 
-    public void setIngridient_name(String ingridient_name) {
-        this.ingredient_name = ingridient_name;
+    public void setIngredient_name(String ingredient_name) {
+        this.ingredient_name = ingredient_name;
     }
 
     public String getDescription() {

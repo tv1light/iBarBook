@@ -1,15 +1,8 @@
 package com.hwjl.iBarBook.models.cocktails;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
+import jakarta.persistence.*;
 
-import java.util.Objects;
-
-
+@SuppressWarnings({"unused"})
 @Entity
 @Table(name = "Cocktails")
 public class Cocktail {
@@ -25,6 +18,8 @@ public class Cocktail {
 
     @Column(name = "recipe")
     private String recipe;
+
+
 
     public Cocktail() {
     }
