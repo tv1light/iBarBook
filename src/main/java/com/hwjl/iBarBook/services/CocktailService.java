@@ -2,6 +2,7 @@ package com.hwjl.iBarBook.services;
 
 import com.hwjl.iBarBook.models.cocktails.Cocktail;
 import com.hwjl.iBarBook.models.cocktails.CocktailRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +26,8 @@ public class CocktailService {
         return cocktailRepository.findAll();
     }
 
+//    public List<String> IngredientsInCocktail(Long Id){
+//        return cocktailRepository.findIngredients(Id);
+//    }
 
 }
