@@ -1,11 +1,16 @@
 package com.hwjl.iBarBook.models.cocktails;
 
+import com.hwjl.iBarBook.models.composite_keys.Ingredient_cocktail;
 import jakarta.persistence.*;
+
+
+import java.util.Set;
 
 @SuppressWarnings({"unused"})
 @Entity
 @Table(name = "Cocktails")
 public class Cocktail {
+
     @Id
     @Column(name = "cocktail_id")
     private long cocktail_id;
@@ -13,22 +18,16 @@ public class Cocktail {
     @Column(name = "cocktail_name")
     private String cocktail_name;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
 
-    @Column(name = "recipe")
+    @Column(name = "recipe", columnDefinition = "text")
     private String recipe;
 
-
+    @OneToMany(mappedBy = "cocktail")
+    Set<Ingredient_cocktail> ingredients;
 
     public Cocktail() {
-    }
-
-    public Cocktail(long cocktail_id, String cocktail_name, String description, String recipe) {
-        this.cocktail_id = cocktail_id;
-        this.cocktail_name = cocktail_name;
-        this.description = description;
-        this.recipe = recipe;
     }
 
     public long getCocktail_id() {
@@ -63,6 +62,21 @@ public class Cocktail {
         this.recipe = recipe;
     }
 
+    public Set<Ingredient_cocktail> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient_cocktail> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Cocktail(long cocktail_id, String cocktail_name, String description, String recipe) {
+        this.cocktail_id = cocktail_id;
+        this.cocktail_name = cocktail_name;
+        this.description = description;
+        this.recipe = recipe;
+    }
+
     @Override
     public String toString() {
         return "Cocktail{" +
@@ -72,6 +86,8 @@ public class Cocktail {
                 ", recipe='" + recipe + '\'' +
                 '}';
     }
+
+
 }
 
 

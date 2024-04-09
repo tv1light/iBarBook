@@ -1,10 +1,10 @@
 package com.hwjl.iBarBook.models.ingredients;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.hwjl.iBarBook.models.composite_keys.Ingredient_cocktail;
+import jakarta.persistence.*;
 import lombok.Setter;
+
+import java.util.Set;
 
 @SuppressWarnings("unused")
 @Entity(name = "Ingredient")
@@ -18,8 +18,11 @@ public class Ingredient {
     private String ingredient_name;
 
     @Setter
-    @Column(name = "description", nullable = false, unique = true)
+    @Column(name = "description", nullable = false, columnDefinition = "text")
     private String description;
+
+    @OneToMany(mappedBy = "ingredient")
+    Set<Ingredient_cocktail> cocktails;
 
 
     public Ingredient() {

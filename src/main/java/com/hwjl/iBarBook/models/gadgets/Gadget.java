@@ -12,10 +12,10 @@ public class Gadget {
     @Column(name = "gadget_id")
     private Long gadget_id;
 
-    @Column(name = "gadget_name", nullable = false, unique = true)
+    @Column(name = "gadget_name", nullable = false, columnDefinition = "text")
     private String gadget_name;
 
-    @Column(name = "description", nullable = false, unique = true)
+    @Column(name = "description", nullable = false, columnDefinition = "text")
     private String description;
 
     public Gadget() {
