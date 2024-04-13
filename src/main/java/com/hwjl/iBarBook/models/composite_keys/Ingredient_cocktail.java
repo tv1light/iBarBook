@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @SuppressWarnings("LombokGetterMayBeUsed")
 @Entity
 @NoArgsConstructor
-public class Ingredient_cocktail {
+public class Ingredient_cocktail {//переделать нахуй
 
     @Id
     @Column(name = "ingredient_cocktail_id")

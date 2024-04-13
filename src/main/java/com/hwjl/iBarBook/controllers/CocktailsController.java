@@ -2,6 +2,8 @@ package com.hwjl.iBarBook.controllers;
 
 import com.hwjl.iBarBook.models.cocktails.Cocktail;
 
+import com.hwjl.iBarBook.models.gadgets.Gadget;
+import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.services.CocktailService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,9 +35,13 @@ public class CocktailsController {
         return cocktailService.findById(id);
     }
 
-//    @GetMapping("/{id}/ingredients")
-//    public List<String> ingredientsInCocktail(@PathVariable("id") Long id){
-//
-//        return cocktailService.IngredientsInCocktail(id);
-//    }
+    @GetMapping("/{id}/ingredients")
+    public List<Ingredient> IngredientsInCocktail(@PathVariable("id") Long id){
+        return cocktailService.IngredientsInCocktail(id);
+    }
+
+    @GetMapping("/{id}/gadgets") //example
+    public List<Gadget> IngredientsInCocktai1l(@PathVariable("id") Long id){
+        return cocktailService.IngredientsInCocktail(id);
+    }
 }

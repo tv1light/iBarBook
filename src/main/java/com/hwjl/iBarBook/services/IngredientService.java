@@ -24,5 +24,8 @@ public class IngredientService {
         return ingredientRepository.findAll();
     }
 
+    public List<Ingredient> findByUserId(Long id){
+        return ingredientRepository.findIngredientsByUserId(id);
+    }
 
 }
