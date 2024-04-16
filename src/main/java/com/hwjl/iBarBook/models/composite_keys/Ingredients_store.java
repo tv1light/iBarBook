@@ -13,5 +13,4 @@ public class Ingredients_store {
 
     @Id
     private Long ingredient_id;
-
 }

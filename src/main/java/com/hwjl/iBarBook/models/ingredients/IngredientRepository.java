@@ -9,12 +9,12 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
 
     @Query(
-            value = "SELECT i.ingredient_id, i.description, i.ingredient_name FROM ingredients i JOIN ingredients_store ins ON i.ingredient_id = ins.ingredient_id WHERE ins.user_id = ?1",
+            value = "SELECT i.id, i.description, i.name FROM ingredients i JOIN ingredients_store ins ON i.id = ins.ingredient_id WHERE ins.user_id = ?1",
             nativeQuery = true)
     List<Ingredient> findIngredientsByUserId(Long id);
 
     @Query(
-            value = "SELECT i.ingredient_id, i.description, i.ingredient_name FROM ingredients i JOIN ingredient_cocktail ic ON i.ingredient_id = ic.ingredient_id WHERE ic.cocktail_id = ?1",
+            value = "SELECT i.id, i.description, i.name FROM ingredients i JOIN ingredient_cocktail ic ON i.id = ic.ingredient_id WHERE ic.cocktail_id = ?1",
             nativeQuery = true)
     List<Ingredient> findIngredientsByCocktailId(Long id);
 }

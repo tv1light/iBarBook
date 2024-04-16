@@ -39,9 +39,4 @@ public class CocktailsController {
     public List<Ingredient> IngredientsInCocktail(@PathVariable("id") Long id){
         return cocktailService.IngredientsInCocktail(id);
     }
-
-    @GetMapping("/{id}/gadgets") //example
-    public List<Gadget> IngredientsInCocktai1l(@PathVariable("id") Long id){
-        return cocktailService.IngredientsInCocktail(id);
-    }
 }

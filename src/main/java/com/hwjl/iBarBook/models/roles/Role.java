@@ -5,13 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name = "Role")
-@Table(name = "Roles")
+@Entity
+@Table(name = "roles")
 public class Role {
     @Id
-    @Column(name = "role_id")
+    @Column(name = "id")
     private Long role_id;
 
-    @Column(name = "role_name", nullable = false, unique = true)
-    private String role_name;
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 }

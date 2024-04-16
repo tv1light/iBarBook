@@ -12,7 +12,7 @@ import java.util.List;
 public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
 
     @Query(
-            value = "SELECT i.ingredient_id, i.description, i.ingredient_name FROM ingredients i JOIN ingredient_cocktail ic ON i.ingredient_id = ic.ingredient_id WHERE ic.cocktail_id = ?1",
+            value = "SELECT i.id, i.description, i.name FROM ingredients i JOIN ingredient_cocktail ic ON i.id = ic.ingredient_id WHERE ic.cocktail_id = ?1",
             nativeQuery = true)
     List<Ingredient> findIngredientsByCocktailId(Long id); //add quantity position to display
 

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 
 @SuppressWarnings("unused")
-@Entity(name = "User")
+@Entity
 @Table(name = "Users")
 public class User {
     @Id

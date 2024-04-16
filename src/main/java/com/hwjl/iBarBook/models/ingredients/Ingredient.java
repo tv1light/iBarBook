@@ -7,23 +7,19 @@ import lombok.Setter;
 import java.util.Set;
 
 @SuppressWarnings("unused")
-@Entity(name = "Ingredient")
+@Entity
 @Table(name = "Ingredients")
 public class Ingredient {
     @Id
-    @Column(name = "ingredient_id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "ingredient_name", nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String ingredient_name;
 
     @Setter
     @Column(name = "description", nullable = false, columnDefinition = "text")
     private String description;
-
-    @OneToMany(mappedBy = "ingredient")
-    Set<Ingredient_cocktail> cocktails;
-
 
     public Ingredient() {
     }
