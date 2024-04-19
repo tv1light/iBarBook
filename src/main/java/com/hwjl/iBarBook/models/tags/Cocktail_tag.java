@@ -1,17 +1,16 @@
 package com.hwjl.iBarBook.models.tags;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "cocktail_tags")
+@Data
 public class Cocktail_tag {
     @Id
-    @Column(name = "id")
+    @GeneratedValue
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 }
