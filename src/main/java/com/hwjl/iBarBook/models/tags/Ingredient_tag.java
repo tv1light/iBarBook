@@ -1,10 +1,13 @@
 package com.hwjl.iBarBook.models.tags;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "ingredient_tags")
 public class Ingredient_tag {
     @Id

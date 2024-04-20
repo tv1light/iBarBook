@@ -2,6 +2,7 @@ package com.hwjl.iBarBook.services;
 
 import com.hwjl.iBarBook.models.user.User;
 import com.hwjl.iBarBook.models.user.UserRepository;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @SuppressWarnings("unused")
 @Service
-@Data
+@AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 

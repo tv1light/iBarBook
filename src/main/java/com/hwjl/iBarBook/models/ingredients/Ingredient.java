@@ -1,15 +1,14 @@
 package com.hwjl.iBarBook.models.ingredients;
 
-import com.hwjl.iBarBook.models.composite_keys.Ingredient_cocktail;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Setter;
-
-import java.util.Set;
+import lombok.*;
 
 @SuppressWarnings("unused")
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "Ingredients")
 public class Ingredient {
     @Id

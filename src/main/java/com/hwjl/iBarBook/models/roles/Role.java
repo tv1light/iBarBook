@@ -1,10 +1,13 @@
 package com.hwjl.iBarBook.models.roles;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "roles")
 public class Role {
     @Id
