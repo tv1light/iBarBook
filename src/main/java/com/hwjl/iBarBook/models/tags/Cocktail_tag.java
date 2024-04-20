@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Table(name = "cocktail_tags")
+@Table(name = "cocktail_tag")
 public class Cocktail_tag {
     @Id
     @GeneratedValue
