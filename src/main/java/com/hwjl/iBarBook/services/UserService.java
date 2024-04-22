@@ -1,5 +1,7 @@
 package com.hwjl.iBarBook.services;
 
+import com.hwjl.iBarBook.models.roles.Role;
+import com.hwjl.iBarBook.models.roles.RoleRepository;
 import com.hwjl.iBarBook.models.user.User;
 import com.hwjl.iBarBook.models.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,11 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+     private final RoleRepository roleRepository;
+
+     public List<Role> findRolesByUserId(Long id){
+         return roleRepository.findByUserId(id);
+     }
 
     public Optional<User> findById(Long id){
         return userRepository.findById(id);

@@ -6,40 +6,33 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+
 import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class CocktailTagService {
-    Cocktail_tagRepository ctRepository;
-
-    public List<Cocktail_tag> findAllTags() {
-        return ctRepository.findAll();
-    }
+    Cocktail_tagRepository cocktailTagRepository;
 
     public Optional<Cocktail_tag> findById(Long id) {
-        return ctRepository.findById(id);
+        return cocktailTagRepository.findById(id);
     }
 
-//    public List<Cocktail_tag> findTagsByCocktailId(Long id) {
-//        return ctRepository.findTagsByCocktailId(id);
-//    }
 
     public Cocktail_tag save(Cocktail_tag cocktailTag) {
-        return ctRepository.save(cocktailTag);
+        return cocktailTagRepository.save(cocktailTag);
     }
 
     public Cocktail_tag updateTag(Long id, Cocktail_tag updCocktailTag) {
-        Cocktail_tag exCocktailTag = ctRepository.findById(id)
+        Cocktail_tag exCocktailTag = cocktailTagRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Ingredient tag not found"));
         exCocktailTag.setName(updCocktailTag.getName());
-        return ctRepository.save(exCocktailTag);
+        return cocktailTagRepository.save(exCocktailTag);
     }
 
     @Transactional
     public String deleteTag(Long id) {
-        ctRepository.deleteById(id);
+        cocktailTagRepository.deleteById(id);
         return "Tag has been deleted";
     }
 }

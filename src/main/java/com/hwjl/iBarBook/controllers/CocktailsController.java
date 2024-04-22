@@ -6,7 +6,6 @@ import com.hwjl.iBarBook.models.cocktails.Cocktail;
 import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.tags.Cocktail_tag;
 import com.hwjl.iBarBook.services.CocktailService;
-import com.hwjl.iBarBook.services.tag_services.CocktailTagService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CocktailsController {
     private final CocktailService cocktailService;
-    private final CocktailTagService cocktailTagService;
+
 
     @GetMapping("")
     public List<Cocktail> cocktails() {
@@ -54,14 +53,14 @@ public class CocktailsController {
         return cocktailService.IngredientsInCocktail(id);
     }
 
-//    @GetMapping("/{id}/tags")
-//    public List<Cocktail_tag> cocktailTags(@PathVariable("id") Long id) {
-//        return cocktailTagService.findTagsByCocktailId(id);
-//    }
+    @GetMapping("/{id}/tags")
+    public List<Cocktail_tag> cocktailTags(@PathVariable("id") Long id) {
+        return cocktailService.findTagsByCocktailId(id);
+    }
 
     @GetMapping("/tags")
     public List<Cocktail_tag> tags(){
-        return cocktailTagService.findAllTags();
+        return cocktailService.findAllTags();
     }
 }
 

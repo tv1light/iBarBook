@@ -16,5 +16,9 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
             nativeQuery = true)
     List<Ingredient> findIngredientsByCocktailId(Long id); //add quantity position to display
 
+    @Query(
+            value = "SELECT c.id FROM cocktails c JOIN ingredient_cocktail ic ON c.id = ic.cocktail_id WHERE ic.ingredient_id = ?1",
+            nativeQuery = true)
+    List<Long> findCocktailsWithIngredient(Long id); //add quantity position to display
 
 }

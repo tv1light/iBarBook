@@ -6,6 +6,8 @@ import com.hwjl.iBarBook.models.composite_keys.Ingredient_cocktailRepository;
 import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.ingredients.IngredientRepository;
 
+import com.hwjl.iBarBook.models.tags.Cocktail_tag;
+import com.hwjl.iBarBook.models.tags.Cocktail_tagRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,8 @@ import java.util.Optional;
 public class CocktailService {
 
     private final CocktailRepository cocktailRepository;
+    private final Cocktail_tagRepository cocktailTagRepository;
+
     private final IngredientRepository ingredientRepository;
     private final Ingredient_cocktailRepository ingredient_cocktailRepository;
 
@@ -50,5 +54,14 @@ public class CocktailService {
     public String deleteCocktail(Long id) {
         cocktailRepository.deleteById(id);
         return "Cocktail has been deleted";
+    }
+
+    public List<Cocktail_tag> findAllTags() {
+        return cocktailTagRepository.findAll();
+    }
+
+
+    public List<Cocktail_tag> findTagsByCocktailId(Long id) {
+        return cocktailTagRepository.findTagsByCocktailId(id);
     }
 }
