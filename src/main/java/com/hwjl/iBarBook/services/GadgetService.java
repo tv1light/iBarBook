@@ -2,6 +2,8 @@ package com.hwjl.iBarBook.services;
 
 import com.hwjl.iBarBook.models.gadgets.Gadget;
 import com.hwjl.iBarBook.models.gadgets.GadgetRepository;
+import com.hwjl.iBarBook.models.tags.Gadget_tag;
+import com.hwjl.iBarBook.models.tags.Gadget_tagRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,7 @@ import java.util.Optional;
 @SuppressWarnings("unused")
 public class GadgetService {
     private final GadgetRepository gadgetRepository;
+    private final Gadget_tagRepository gadgetTagRepository;
 
     public Optional<Gadget> findById(Long id){
         return gadgetRepository.findById(id);
@@ -39,5 +42,9 @@ public class GadgetService {
     public String deleteGadget(Long id) {
         gadgetRepository.deleteById(id);
         return "Gadget has been deleted";
+    }
+
+    public List<Gadget_tag> findTagsByGadgetId(Long id) {
+        return gadgetTagRepository.findTagsByGadgetId(id);
     }
 }

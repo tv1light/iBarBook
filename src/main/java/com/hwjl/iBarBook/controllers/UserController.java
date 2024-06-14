@@ -5,13 +5,14 @@ import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.roles.Role;
 import com.hwjl.iBarBook.models.user.User;
 import com.hwjl.iBarBook.services.IngredientService;
-import com.hwjl.iBarBook.services.RoleService;
 import com.hwjl.iBarBook.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+/* todo: 1) Просмотр  */
 
 @SuppressWarnings("unused")
 @RestController

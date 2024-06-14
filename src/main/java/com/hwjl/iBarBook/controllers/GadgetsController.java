@@ -1,12 +1,18 @@
 package com.hwjl.iBarBook.controllers;
 
 import com.hwjl.iBarBook.models.gadgets.Gadget;
+import com.hwjl.iBarBook.models.tags.Gadget_tag;
 import com.hwjl.iBarBook.services.GadgetService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+/*todo:
+*  1) Проверить правильность удаления гаджета
+*  2) Добаваление картинки
+* */
 
 @SuppressWarnings("unused")
 @RestController
@@ -38,6 +44,11 @@ public class GadgetsController {
     @DeleteMapping("/delete/{id}")
     public String deleteGadget(@PathVariable Long id){
         return gadgetService.deleteGadget(id);
+    }
+
+    @GetMapping("/{id}/tags")
+    public List<Gadget_tag> gadgetTags(@PathVariable Long id){
+        return gadgetService.findTagsByGadgetId(id);
     }
 }
 

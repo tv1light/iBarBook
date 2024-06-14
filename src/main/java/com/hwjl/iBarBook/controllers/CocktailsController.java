@@ -9,15 +9,20 @@ import com.hwjl.iBarBook.services.CocktailService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 import java.util.Optional;
+
+/*todo:
+   1) Показать коктейли, которые можно приготовить с учетом выбранных ингредиентов
+   2) Добавление картинки
+*  */
 
 @SuppressWarnings("unused")
 @RestController
 @RequestMapping("/cocktails")
 @AllArgsConstructor
 public class CocktailsController {
+
     private final CocktailService cocktailService;
 
 
@@ -43,9 +48,8 @@ public class CocktailsController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteGadget(@PathVariable Long id) {
+    public String deleteCocktail(@PathVariable Long id) {
         return cocktailService.deleteCocktail(id);
-
     }
 
     @GetMapping("/{id}/ingredients")
@@ -64,12 +68,3 @@ public class CocktailsController {
     }
 }
 
-
-//    @RequestMapping("/map")
-//    public String map(@RequestBody SampleObject sampleObject){
-//        return sampleObject.b + sampleObject.c;
-//    }
-//class SampleObject{
-//    public String b;
-//    public String c;
-//}

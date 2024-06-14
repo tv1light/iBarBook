@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/*todo:
+*  1) Добавление картинки
+*  2) Добавление ингредиента в хранилище пользователя
+* */
+
+
 @SuppressWarnings("unused")
 @RestController
 @RequestMapping("/ingredients")
