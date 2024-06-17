@@ -17,13 +17,13 @@ import java.util.Optional;
 @SuppressWarnings("unused")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
     private final IngredientService ingredientService;
 
-    @GetMapping("")
+    @GetMapping("all")
     public List<User> users(){
         return userService.findAll();
     }
@@ -34,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public User addUser(@RequestBody User user){
-        return userService.save(user);
+    public String addUser(@RequestBody User user){
+        return userService.registration(user);
     }
 
     @PutMapping("/{id}/edit")
@@ -62,4 +62,5 @@ public class UserController {
     public List<Ingredient> addIngredientsToStore(@PathVariable Long id, @RequestBody List<Long> ingredients){
         return ingredientService.findByUserId(id);
     }
+
 }

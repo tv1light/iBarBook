@@ -13,7 +13,7 @@ import java.util.List;
 public class RoleService {
     private final RoleRepository roleRepository;
 //todo Нужен ли мне сервис для ролей
-//    public List<Role> findByUserId(Long id){
-//        return roleRepository.findByUserId(id);
-//    }
+    public List<Role> findByUserId(Long id) {
+        return roleRepository.findByUserId(id);
+    }
 }

@@ -7,12 +7,14 @@ import com.hwjl.iBarBook.models.composite_keys.CK_id.Cocktail_gadgetsId;
 import com.hwjl.iBarBook.models.gadgets.Gadget;
 import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.ingredients.IngredientRepository;
+import com.hwjl.iBarBook.models.roles.ERole;
 import com.hwjl.iBarBook.models.roles.Role;
 import com.hwjl.iBarBook.models.roles.RoleRepository;
 import com.hwjl.iBarBook.models.tags.*;
 import com.hwjl.iBarBook.models.user.User;
 import com.hwjl.iBarBook.models.user.UserRepository;
 import com.hwjl.iBarBook.services.GadgetService;
+import com.hwjl.iBarBook.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,14 +40,15 @@ public class DataInitializer {
                                       Cocktail_tagRepository cocktailTagRepository,
                                       Cocktail_tagsRepository cocktailTagsRepository,
                                       Gadget_tagRepository gadgetTagRepository,
-                                      Gadget_tagsRepository gadgetTagsRepository) {
+                                      Gadget_tagsRepository gadgetTagsRepository,
+                                      UserService userService) {
         return args -> {
             //Инициализация Ролей
             Role role1 = new Role();
-            role1.setName("Role 1");
+            role1.setName(ERole.ROLE_ADMIN);
 
             Role role2 = new Role();
-            role2.setName("Role 2");
+            role2.setName(ERole.ROLE_USER);
 
             roleRepository.save(role1);
             roleRepository.save(role2);
@@ -61,8 +64,8 @@ public class DataInitializer {
             user2.setEmail("user2@example.com");
             user2.setPassword("password2");
 
-            userRepository.save(user1);
-            userRepository.save(user2);
+            userService.registration(user1);
+            userService.registration(user2);
 
             //Связь Пользователь->Роль
             User_role ur1 = new User_role();

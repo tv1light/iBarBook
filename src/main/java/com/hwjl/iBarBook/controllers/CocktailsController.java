@@ -7,6 +7,7 @@ import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.tags.Cocktail_tag;
 import com.hwjl.iBarBook.services.CocktailService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class CocktailsController {
     private final CocktailService cocktailService;
 
 
-    @GetMapping("")
+    @GetMapping("all")
     public List<Cocktail> cocktails() {
         return cocktailService.findAll();
     }
@@ -38,6 +39,7 @@ public class CocktailsController {
     }
 
     @PutMapping("/{id}/edit")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public Cocktail editCocktail(@PathVariable Long id, @RequestBody Cocktail updatedCocktail) {
         return cocktailService.updateCocktail(id, updatedCocktail);
     }

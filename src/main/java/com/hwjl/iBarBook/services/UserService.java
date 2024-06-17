@@ -5,6 +5,7 @@ import com.hwjl.iBarBook.models.roles.RoleRepository;
 import com.hwjl.iBarBook.models.user.User;
 import com.hwjl.iBarBook.models.user.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +16,10 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserService {
-    private final UserRepository userRepository;
+     private final UserRepository userRepository;
      private final RoleRepository roleRepository;
+     private PasswordEncoder passwordEncoder;
+
 
      public List<Role> findRolesByUserId(Long id){
          return roleRepository.findByUserId(id);
@@ -30,8 +33,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User save(User user){
-        return userRepository.save(user);
+    public String registration(User user){
+         user.setPassword(passwordEncoder.encode(user.getPassword()));
+         userRepository.save(user);
+         return "Пользователь успешно создан";
     }
 
     public User updateUser(Long id, User updatedUser) {
