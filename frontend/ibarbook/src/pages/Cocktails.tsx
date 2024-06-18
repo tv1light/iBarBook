@@ -1,12 +1,18 @@
 import React from 'react';
-import Cocktail from '../components/Cocktail';
+import { Link } from 'react-router-dom';
+import cocktailsData from '../data/cocktailsData';
+import './Cocktails.css';
 
 const Cocktails: React.FC = () => {
-    const cocktailList = ['Коктейль 1', 'Коктейль 2', 'Коктейль 3'];
     return (
-        <div className="content">
-            {cocktailList.map((name, index) => (
-                <Cocktail key={index} name={name} />
+        <div className="cocktails">
+            {cocktailsData.map(cocktail => (
+                <div key={cocktail.id} className="cocktail">
+                    <Link to={`/cocktails/${cocktail.id}`}>
+                        <h2>{cocktail.name}</h2>
+                        <img src={cocktail.image} alt={cocktail.name} />
+                    </Link>
+                </div>
             ))}
         </div>
     );

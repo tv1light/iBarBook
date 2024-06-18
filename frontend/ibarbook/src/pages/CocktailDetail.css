@@ -1,0 +1,14 @@
+.cocktail-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.cocktail-detail img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
