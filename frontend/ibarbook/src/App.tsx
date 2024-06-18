@@ -7,6 +7,9 @@ import CocktailDetail from './pages/CocktailDetail';
 import Ingredients from './pages/Ingredients';
 import Tools from './pages/Tools';
 import './styles.css';
+import IngredientDetail from "./pages/IngredientDetail";
+import ToolDetail from "./pages/ToolDetail";
+
 
 const App: React.FC = () => {
   return (
@@ -19,7 +22,9 @@ const App: React.FC = () => {
               <Route path="/cocktails" Component={Cocktails}/>
                 <Route path="/cocktails/:id" Component={CocktailDetail} />
               <Route path="/ingredients" Component={Ingredients}/>
+                <Route path="/ingredients/:id" Component={IngredientDetail}/>
               <Route path="/tools" Component={Tools}/>
+              <Route path="/tools/:id" Component={ToolDetail}/>
             </Routes>
           </main>
         </div>

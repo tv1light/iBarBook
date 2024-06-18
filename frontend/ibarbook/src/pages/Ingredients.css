@@ -1,26 +1,27 @@
-.cocktails-container {
+/* src/components/Ingredients.css */
+
+.ingredients-container {
     flex: 4;
     overflow-y: auto;
     padding: 1em;
-
     background: rgba(143, 120, 120, 0.32);
     border-radius: 20px;
     -ms-overflow-style: none;  /* Internet Explorer и старые версии Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
-.cocktails-container::-webkit-scrollbar {
+.ingredients-container::-webkit-scrollbar {
     display: none;  /* Chrome, Safari и новые версии Edge */
 }
 
-.cocktails {
+.ingredients {
     display: flex;
     flex: 4;
     flex-direction: column;
     overflow-y: auto;
 }
 
-.cocktail {
+.ingredient {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     border-style: solid;
@@ -31,8 +32,9 @@
     margin: 10px;
 }
 
-.cocktail img {
+.ingredient img {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 0.5em;
 }
+

@@ -1,4 +1,6 @@
-.cocktail-detail {
+/* src/components/IngredientDetail.css */
+
+.ingredient-detail {
     display: flex;
     flex: 4;
     flex-direction: column;
@@ -9,7 +11,7 @@
     text-align: left;
 }
 
-.cocktail-detail img {
+.ingredient-detail img {
     max-width: 100%;
     border-radius: 25px;
     margin-bottom: 1em;

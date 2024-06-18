@@ -22,6 +22,67 @@ const cocktailsData = [
             'Soda water'
         ],
         recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
+    },
+    {
+        id: '3',
+        name: 'Mojito',
+        image: 'https://example.com/mojito.jpg',
+        ingredients: [
+            '2 oz White rum',
+            '1 oz Lime juice',
+            '2 tsp Sugar',
+            'Mint leaves',
+            'Soda water'
+        ],
+        recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
+    },    {
+        id: '4',
+        name: 'Mojito',
+        image: 'https://example.com/mojito.jpg',
+        ingredients: [
+            '2 oz White rum',
+            '1 oz Lime juice',
+            '2 tsp Sugar',
+            'Mint leaves',
+            'Soda water'
+        ],
+        recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
+    },    {
+        id: '4',
+        name: 'Mojito',
+        image: 'https://example.com/mojito.jpg',
+        ingredients: [
+            '2 oz White rum',
+            '1 oz Lime juice',
+            '2 tsp Sugar',
+            'Mint leaves',
+            'Soda water'
+        ],
+        recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
+    },    {
+        id: '4',
+        name: 'Mojito',
+        image: 'https://example.com/mojito.jpg',
+        ingredients: [
+            '2 oz White rum',
+            '1 oz Lime juice',
+            '2 tsp Sugar',
+            'Mint leaves',
+            'Soda water'
+        ],
+        recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
+    },    {
+        id: '4',
+        name: 'Mojito',
+        image: 'https://example.com/mojito.jpg',
+        ingredients: [
+            '2 oz White rum',
+            '1 oz Lime juice',
+            '2 tsp Sugar',
+            'Mint leaves',
+            'Soda water'
+        ],
+        recipe: 'Muddle mint leaves with sugar and lime juice. Add rum and top with soda water. Serve over ice.'
     }
     // Добавьте больше коктейлей по мере необходимости
 ];
