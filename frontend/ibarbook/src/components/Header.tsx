@@ -11,7 +11,7 @@ const Header: React.FC = () => {
                 <Link to="/ingredients">Ингредиенты</Link>
                 <Link to="/tools">Штучки</Link>
             </nav>
-            <button className="login-btn">Войти</button>
+            <Link to="/login" className="login-btn">Войти</Link>
         </header>
     );
 };
