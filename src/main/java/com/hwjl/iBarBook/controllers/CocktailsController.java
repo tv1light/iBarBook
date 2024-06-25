@@ -7,6 +7,7 @@ import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import com.hwjl.iBarBook.models.tags.Cocktail_tag;
 import com.hwjl.iBarBook.services.CocktailService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,25 +34,8 @@ public class CocktailsController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Cocktail> cocktails(@PathVariable("id") Long id) {
+    public Cocktail cocktails(@PathVariable Long id) {
         return cocktailService.findById(id);
-
-    }
-
-    @PutMapping("/{id}/edit")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Cocktail editCocktail(@PathVariable Long id, @RequestBody Cocktail updatedCocktail) {
-        return cocktailService.updateCocktail(id, updatedCocktail);
-    }
-
-    @PostMapping("/add")
-    public Cocktail addCocktail(@RequestBody Cocktail cocktail) {
-        return cocktailService.save(cocktail);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteCocktail(@PathVariable Long id) {
-        return cocktailService.deleteCocktail(id);
     }
 
     @GetMapping("/{id}/ingredients")

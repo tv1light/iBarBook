@@ -1,7 +1,10 @@
 package com.hwjl.iBarBook.models.cocktails;
 
+import com.hwjl.iBarBook.models.ingredients.Ingredient;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @SuppressWarnings({"unused"})
 @Entity
@@ -23,6 +26,8 @@ public class Cocktail {
     @Column(columnDefinition = "text")
     private String recipe;
 
+    @ElementCollection
+    private List<Ingredient> ingredients = null;
 }
 
 

@@ -25,12 +25,20 @@ public class CocktailService {
     private final IngredientRepository ingredientRepository;
     private final Ingredient_cocktailRepository ingredient_cocktailRepository;
 
-    public Optional<Cocktail> findById(Long Id){
-        return cocktailRepository.findById(Id);
+    public Cocktail findById(Long Id){
+        Optional<Cocktail> optionalCocktail = cocktailRepository.findById(Id);
+        Cocktail cocktail = new Cocktail();
+        if (optionalCocktail.isPresent()) {
+            cocktail = optionalCocktail.get();
+            cocktail.setIngredients(ingredientRepository.findIngredientsByCocktailId(cocktail.getId()));
+        }
+        return cocktail;
     }
 
     public List<Cocktail> findAll(){
-        return cocktailRepository.findAll();
+        List<Cocktail> cocktails = cocktailRepository.findAll();
+        cocktails.forEach(cocktail -> cocktail.setIngredients(ingredientRepository.findIngredientsByCocktailId(cocktail.getId())));
+        return cocktails;
     }
 
     public Cocktail save(Cocktail cocktail){

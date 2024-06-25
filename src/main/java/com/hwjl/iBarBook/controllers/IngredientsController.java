@@ -35,21 +35,6 @@ public class IngredientsController {
         return ingredientService.findById(id);
     }
 
-    @PostMapping("/add")
-    public Ingredient addIngredient(@RequestBody Ingredient ingredient){
-        return ingredientService.save(ingredient);
-    }
-
-    @PutMapping("/{id}/edit")
-    public Ingredient editIngredient(@PathVariable Long id, @RequestBody Ingredient updatedIngredient){
-        return ingredientService.updateIngredient(id, updatedIngredient);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteIngredient(@PathVariable Long id){
-        return ingredientService.deleteIngredient(id);
-    }
-
     @GetMapping("/{id}/tags")
     public List<Ingredient_tag> ingredientTags(@PathVariable Long id){
         return ingredientService.findByIngredientId(id);

@@ -31,20 +31,7 @@ public class GadgetsController {
         return gadgetService.findById(id);
     }
 
-    @PostMapping("/add")
-    public Gadget addGadget(@RequestBody Gadget gadget){
-        return gadgetService.save(gadget);
-    }
 
-    @PutMapping("/{id}/edit")
-    public Gadget editGadget(@PathVariable Long id, @RequestBody Gadget updatedGadget){
-        return gadgetService.updateGadget(id, updatedGadget);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteGadget(@PathVariable Long id){
-        return gadgetService.deleteGadget(id);
-    }
 
     @GetMapping("/{id}/tags")
     public List<Gadget_tag> gadgetTags(@PathVariable Long id){

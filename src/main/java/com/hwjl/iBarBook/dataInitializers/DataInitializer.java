@@ -116,10 +116,11 @@ public class DataInitializer {
             Ingredient_cocktail ing1 = new Ingredient_cocktail();
             ing1.setCocktail_id(1L);
             ing1.setIngredient_id(1L);
-
+            ing1.setQuantity(50);
             Ingredient_cocktail ing2 = new Ingredient_cocktail();
             ing2.setCocktail_id(1L);
             ing2.setIngredient_id(2L);
+            ing2.setQuantity(60);
 
             ingRepository.save(ing1);
             ingRepository.save(ing2);

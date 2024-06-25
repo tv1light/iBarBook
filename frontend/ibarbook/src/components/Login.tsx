@@ -16,7 +16,7 @@ const Login: React.FC = () => {
                 return;
             }
             const credentials = { username, password };
-            await axios.post('http://localhost:8081/auth/signin', credentials)
+            await axios.post('http://localhost:8080/auth/login', credentials)
                 .then(response => {console.log('Login successful:', response);
                 history('/cocktails');
             })

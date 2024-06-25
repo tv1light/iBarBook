@@ -1,5 +1,7 @@
 package com.hwjl.iBarBook.services;
 
+import com.hwjl.iBarBook.models.composite_keys.User_role;
+import com.hwjl.iBarBook.models.composite_keys.User_roleRepository;
 import com.hwjl.iBarBook.models.roles.Role;
 import com.hwjl.iBarBook.models.roles.RoleRepository;
 import com.hwjl.iBarBook.models.user.User;
@@ -18,6 +20,8 @@ import java.util.Optional;
 public class UserService {
      private final UserRepository userRepository;
      private final RoleRepository roleRepository;
+     private final User_roleRepository userRoleRepository;
+
      private PasswordEncoder passwordEncoder;
 
 
@@ -36,15 +40,19 @@ public class UserService {
     public String registration(User user){
          user.setPassword(passwordEncoder.encode(user.getPassword()));
          userRepository.save(user);
+         User_role ur = new User_role();
+         ur.setUser_id(user.getId());
+         ur.setRole_id(2L);
+         userRoleRepository.save(ur);
          return "Пользователь успешно создан";
     }
 
     public User updateUser(Long id, User updatedUser) {
-        User exUser = userRepository.findById(id)
+         User exUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         exUser.setEmail(updatedUser.getEmail());
         exUser.setUsername(updatedUser.getUsername());
-        exUser.setPassword(updatedUser.getPassword());
+        exUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
         return userRepository.save(exUser);
     }
 
